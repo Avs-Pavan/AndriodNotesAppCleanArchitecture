@@ -18,6 +18,6 @@ interface NoteDao {
     suspend fun insertNote(noteEntity: NoteEntity)
 
     @Delete
-    suspend fun deleteNote(noteEntity: NoteEntity)
+    suspend fun deleteNote(noteEntity: NoteEntity): Int
 
 }

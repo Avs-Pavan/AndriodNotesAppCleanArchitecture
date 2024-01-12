@@ -20,7 +20,7 @@ fun NoteEntity.toNote(): Note {
 
 fun Note.toNoteEntity(): NoteEntity {
     return NoteEntity(
-        id=id,
+        id = id,
         title = title,
         content = content,
         timeStamp = timeStamp

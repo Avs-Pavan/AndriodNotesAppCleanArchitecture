@@ -12,12 +12,17 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.kevin.andriodnotesappcleanarchitecture.domain.model.Note
 import com.kevin.andriodnotesappcleanarchitecture.presentation.NotesViewModel
+import com.kevin.andriodnotesappcleanarchitecture.presentation.screens.components.AddNotesBottomSheet
 import com.kevin.andriodnotesappcleanarchitecture.presentation.screens.components.NotesListUI
 
 @Composable
@@ -32,6 +37,21 @@ fun NotesListScreen(viewModel: NotesViewModel) {
     if (viewModel.state.value.message.isNotEmpty())
         Toast.makeText(context, viewModel.state.value.message, Toast.LENGTH_SHORT).show()
 
+    var showSheet by remember { mutableStateOf(false) }
+
+    if (showSheet) {
+        AddNotesBottomSheet({ title, content ->
+            viewModel.addNotes(
+                Note(
+                    title = title, content = content,
+                    timeStamp = System.currentTimeMillis()
+                )
+            )
+        }) {
+            showSheet = false
+        }
+    }
+
 
     Box(
         modifier = Modifier
@@ -45,7 +65,7 @@ fun NotesListScreen(viewModel: NotesViewModel) {
 
         FloatingActionButton(
             onClick = {
-                Log.e("Click", "Button clicked.")
+                showSheet = true
             },
             modifier = Modifier
                 .size(56.dp)

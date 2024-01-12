@@ -1,15 +1,11 @@
 package com.kevin.andriodnotesappcleanarchitecture.data.repository
 
-import android.util.Log
-import com.kevin.andriodnotesappcleanarchitecture.commons.mappers.toNote
 import com.kevin.andriodnotesappcleanarchitecture.commons.mappers.toNoteEntity
 import com.kevin.andriodnotesappcleanarchitecture.data.localdatasource.NoteDao
 import com.kevin.andriodnotesappcleanarchitecture.data.localdatasource.NoteEntity
 import com.kevin.andriodnotesappcleanarchitecture.domain.model.Note
 import com.kevin.andriodnotesappcleanarchitecture.domain.repository.INoteRepository
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class NoteRepository @Inject constructor(private val noteDao: NoteDao) : INoteRepository {

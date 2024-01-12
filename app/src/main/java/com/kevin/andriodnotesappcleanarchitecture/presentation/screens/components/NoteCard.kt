@@ -14,13 +14,12 @@ import androidx.compose.ui.unit.dp
 import com.kevin.andriodnotesappcleanarchitecture.domain.model.Note
 
 @Composable
-fun NoteCard(note: Note, deleteNote: () -> Unit) {
+fun NoteCard(note: Note) {
     Column(
         modifier = Modifier
             .background(color = Color.Cyan, RoundedCornerShape(10.dp))
             .fillMaxWidth()
             .padding(10.dp)
-            .clickable { deleteNote() }
     ) {
         Text(text = note.title)
         Text(text = note.content)
