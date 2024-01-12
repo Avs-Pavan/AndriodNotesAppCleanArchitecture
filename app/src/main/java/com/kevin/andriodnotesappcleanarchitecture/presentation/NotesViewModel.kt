@@ -24,9 +24,7 @@ class NotesViewModel @Inject constructor(private val notesUseCases: NotesUseCase
 
     fun getAllNotes() {
         viewModelScope.launch(Dispatchers.IO) {
-            Log.e("NOtes::", "fetching")
             notesUseCases.getAllNotesUseCase().collect {
-                Log.e("Notes::", it.joinToString())
                 _state.value = _state.value.copy(
                     notes = it.map { noteEntity -> noteEntity.toNote() }
                 )

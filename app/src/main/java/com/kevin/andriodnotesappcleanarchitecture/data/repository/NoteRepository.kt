@@ -1,5 +1,6 @@
 package com.kevin.andriodnotesappcleanarchitecture.data.repository
 
+import android.util.Log
 import com.kevin.andriodnotesappcleanarchitecture.commons.mappers.toNote
 import com.kevin.andriodnotesappcleanarchitecture.commons.mappers.toNoteEntity
 import com.kevin.andriodnotesappcleanarchitecture.data.localdatasource.NoteDao
