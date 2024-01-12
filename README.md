@@ -5,6 +5,54 @@
 This Android Notes App is designed with a clean architecture approach, incorporating Hilt for dependency injection, MVVM for the presentation layer, and Room DB for local data storage. The project structure follows a modular organization for better maintainability and scalability.
 
 ## Project Structure
+    
+    
+    .
+    ├── MainActivity.kt                  # Main entry point of the Android application.
+    ├── NoteApp.kt                      # Application class responsible for initializing components and application-wide configurations.
+    ├── commons
+    │   ├── Constants.kt                # Defines application-wide constants.
+    │   ├── exceptions
+    │   │   └── InvalidNoteException.kt    # Custom exception class for handling invalid note scenarios.
+    │   └── mappers
+    │       └── NoteMappers.kt          # Contains mappers for converting between different data representations.
+    ├── data
+    │   ├── localdatasource
+    │   │   ├── NoteDao.kt              # Data Access Object (DAO) interface for Room Database.
+    │   │   ├── NoteDataBase.kt        # Room Database class responsible for managing local data storage.
+    │   │   └── NoteEntity.kt           # Entity class representing a Note in the local database.
+    │   └── repository
+    │       └── NoteRepository.kt       # Repository class coordinating data operations, acting as a bridge between the data source and domain layer.
+    ├── di
+    │   ├── AppModule.kt                # Dependency Injection module providing application-level dependencies.
+    │   ├── RepositoryModule.kt         # Dependency Injection module handling repository-level dependencies.
+    │   └── UseCaseModule.kt            # Dependency Injection module managing use case-level dependencies.
+    ├── domain
+    │   ├── model
+    │   │   └── Note.kt                 # Data model representing a Note in the domain layer.
+    │   ├── repository
+    │   │   └── INoteRepository.kt      # Interface defining the contract for interacting with note-related data in the repository.
+    │   └── usecases
+    │       ├── AddNoteUseCase.kt       # Use case for adding a new Note.
+    │       ├── DeleteNoteUseCase.kt    # Use case for deleting a Note.
+    │       ├── GetAllNotesUseCase.kt   # Use case for retrieving all Notes.
+    │       └── NotesUseCases.kt        # Aggregator file for organizing all use cases.
+    ├── presentation
+    │   ├── NotesViewModel.kt           # ViewModel class managing UI-related data and communication with the domain layer.
+    │   ├── screens
+    │   │   ├── NoteListScreen.kt       # UI screen displaying a list of notes.
+    │   │   └── components
+    │   │       ├── AddNotesBottomSheet.kt   # UI component representing a bottom sheet for adding notes.
+    │   │       ├── NoteCard.kt         # UI component representing a card view for displaying a single note.
+    │   │       └── NotesList.kt        # UI component representing a list of notes.
+    │   └── state
+    │       └── NotesState.kt           # Class defining the state management for notes in the UI.
+    └── ui
+        └── theme
+            ├── Color.kt                 # File defining color resources for the UI.
+            ├── Theme.kt                 # File defining theme resources for the UI.
+            └── Type.kt                  # File defining type resources for the UI.
+    
 
 The project structure is organized into different modules to separate concerns and promote a clean architecture design:
 
