@@ -100,7 +100,7 @@ The project relies on the following major dependencies:
 
 - Hilt for dependency injection.
 - Room DB for local data storage.
-- ViewModel and LiveData for UI-related data management.
+- ViewModel, State, Flow for UI-related data management.
 
 Make sure to check the individual module's build.gradle files for a comprehensive list of dependencies.
 
