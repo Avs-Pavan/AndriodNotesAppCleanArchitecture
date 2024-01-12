@@ -104,9 +104,6 @@ The project relies on the following major dependencies:
 
 Make sure to check the individual module's build.gradle files for a comprehensive list of dependencies.
 
-## Contribution Guidelines
-
-If you would like to contribute to the project, please follow the contribution guidelines provided in the CONTRIBUTING.md file.
 
 ## License
 
