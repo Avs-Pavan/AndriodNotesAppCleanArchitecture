@@ -4,7 +4,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -36,7 +39,8 @@ fun AddNotesBottomSheet(saveNotes: (String, String) -> Unit, onDismiss: () -> Un
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(20.dp)
+                .wrapContentHeight()
+                .padding(10.dp)
         ) {
             TextField(
                 value = title,
